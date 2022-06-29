@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <title>네이버</title>
+    <link rel="shortcut icon" type="image/x-icon" href="./favicon.ico?1" />
+    <link rel="stylesheet" href="./naver.css" />
+  </head>
+  <body>
+    <!-- 
+      <div style="height: 20px;margin-bottom: 20px;background: yellow;
+    display: inline-block; width: 100%;"></div>
+    <div style="height: 20px;margin-top: 30px;background: green;"></div> 
+     -->
+    <!-- margin collapsing 
+      : 형제끼리 margin이 상하로 겹치면 더 사이즈가 큰것만 남음 
+      : 빈 블록일 경우에는 margin 서로 무시하고 겹친다
+      : 자식과 부모가 겹치면 부모 영역 침범하고 자식의 margin이 밖으로 빠져나감
+      >> block format context 만들어 주면 해결! : display: inline-block; width: 100%;
+    -->
+    <header>
+      </div>
+      <div class="center-align">
+        <div id="header-top">
+          <span>네이버를 시작페이지로 > | </span>
+          <span>쥬니어네이버 | </span>
+          <span>해피빈 | </span>
+        </div>
+        <div id="header-search"> 
+          <a href="https://www.naver.com">
+            <h1>
+              <span>네이버</span>
+            </h1>
+          </a>
+          <h2 class="blind">검색창</h2>
+          <fieldset>
+            <legend class="blind">검색</legend>
+            <input />
+            <span id="search-keyboard"></span>
+            <span id="search-history"></span>
+            <button>
+              <span class="blind">검색</span>
+              <span id="search-image"></span>
+            </button>
+          </fieldset>
+        </div>
+      </div>
+    </header>
+    <nav>
+      <div class="center-align relative">
+        <div id="search-ranking">
+          <h2 class="blind">실시간 검색어</h2>
+          <span id="rank-number">1</span>
+          <span>이현영</span>
+        </div>
+        <ul>
+          <li>
+            <a href="">
+              <span class="nav-item-mail"></span>
+              <span class="blind">메일</span>
+            </a>
+          </li>
+          <li>
+            <a href=""><span></span><span class="blind">카페</span></a>
+          </li>
+          <li>
+            <a href=""><span></span><span class="blind">블로그</span></a>
+          </li>
+          <li>
+            <a href=""><span></span><span class="blind">지식인</span></a>
+          </li>
+          <li>
+            <a href=""><span></span><span class="blind">네이버쇼핑</span></a>
+          </li>
+          <li>
+            <a href=""><span></span><span class="blind">네이버페이</span></a>
+          </li>
+          <li>
+            <a href=""><span></span><span class="blind">네이버TV</span></a>
+          </li>
+          <li>
+            <a href=""><span></span><span class="blind">사전</span></a>
+          </li>
+          <li>
+            <a href=""><span></span><span class="blind">뉴스</span></a>
+          </li>
+          <li>
+            <a href=""><span></span><span class="blind">증권</span></a>
+          </li>
+          <li>
+            <a href=""><span></span><span class="blind">부동산</span></a>
+          </li>
+          <li>
+            <a href=""><span></span><span class="blind">지도</span></a>
+          </li>
+          <li>
+            <a href=""><span></span><span class="blind">영화</span></a>
+          </li>
+          <li>
+            <a href=""><span></span><span class="blind">뮤직</span></a>
+          </li>
+          <li>
+            <a href=""><span></span><span class="blind">책</span></a>
+          </li>
+          <li>
+            <a href=""><span></span><span class="blind">웹툰</span></a>
+          </li>
+        </ul>
+        <div class="nav-divider"></div>
+        <ul>
+          <li>
+            <a href=""><span></span><span class="blind">더보기</span></a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <main>
+      <h3>연합뉴스</h3>
+      <ol>
+        <li>안녕하세요</li>
+        <li>제 이름은</li>
+        <li>이현영입니다</li>
+      </ol>
+      <h3>언론사 목록</h3>
+      <ul>
+        <li><img src="./YTN.png" alt="YTN" /></li>
+        <li><img src="./서울경제.png" alt="서울경제" /></li>
+      </ul>
+      <h3>뉴스</h3>
+      <h3>법률</h3>
+      <h3>쇼핑</h3>
+    </main>
+    <footer>
+      <div>공지사항</div>
+      <div>Creators</div>
+      <div>회사소개</div>
+    </footer>
+  </body>
+</html>
