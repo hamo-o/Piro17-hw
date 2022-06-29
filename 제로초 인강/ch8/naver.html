@@ -5,35 +5,63 @@
     <title>네이버</title>
     <link rel="shortcut icon" type="image/x-icon" href="./favicon.ico?1" />
     <link rel="stylesheet" href="./naver.css" />
+    <link rel="stylesheet" href="./webfont.css" />
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: -apple-system, BlinkMacSystemFont, "Malgun Gothic",
+          "맑은 고딕", helvetica, "Apple SD Gothic Neo", sans-serif;
+      }
+
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        margin: 0;
+      }
+
+      .float-left {
+        float: left;
+      }
+    </style>
   </head>
   <body>
     <header>
-      </div>
       <div class="center-align">
         <div id="header-top">
           <span>네이버를 시작페이지로 > | </span>
           <span>쥬니어네이버 | </span>
           <span>해피빈 | </span>
         </div>
-        <div id="header-search"> 
+        <div id="header-search">
           <a href="https://www.naver.com">
             <h1>
               <span>네이버</span>
             </h1>
           </a>
           <h2 class="blind">검색창</h2>
-          <form class="inline-block"
-          action="https://search.naver.com/search.naver?where=nexearch&sm=top_hty&fbm=0&ie=utf8&query=">
-              <fieldset>
-                <legend class="blind">검색</legend>
-                <input />
-                <span id="search-keyboard"></span>
-                <span id="search-history"></span>
-                <button type="submit">
-                  <span class="blind">검색</span>
-                  <span id="search-image"></span>
-                </button>
-              </fieldset>
+          <form
+            class="inline-block"
+            action="https://search.naver.com/search.naver?where=nexearch&sm=top_hty&fbm=0&ie=utf8&query="
+          >
+            <fieldset>
+              <legend class="blind">검색</legend>
+              <input />
+              <span id="search-keyboard"></span>
+              <span id="search-history"></span>
+              <button type="submit">
+                <span class="blind">검색</span>
+                <span id="search-image"></span>
+              </button>
+            </fieldset>
           </form>
         </div>
       </div>
@@ -151,36 +179,39 @@
       </div>
     </nav>
     <main>
-
       <div id="main-centered" class="center-align">
-
         <div id="main-first-block">
-          <div id="main-ad"></div>
+          <div id="main-ad"><h3 class="blind">광고1</h3></div>
           <div id="main-login">
             <h3 class="blind">로그인</h3>
             <div class="login-wrapper">
-              <span class="login-text">네이버를 더 안전하고 편리하게 이용하세요.</span>
-              <a href="https://nid.naver.com/nidlogin.login?mode=form&url=https%3A%2F%2Fwww.naver.com">
+              <span class="login-text"
+                >네이버를 더 안전하고 편리하게 이용하세요.</span
+              >
+              <a
+                href="https://nid.naver.com/nidlogin.login?mode=form&url=https%3A%2F%2Fwww.naver.com"
+              >
                 <span class="blind">NAVER 로그인</span>
                 <span class="login-image"></span>
               </a>
-              <a href="https://nid.naver.com/user2/V2Join?m=agree&lang=ko_KR" 
-              class="login-signup">회원가입</a>
+              <a
+                href="https://nid.naver.com/user2/V2Join?m=agree&lang=ko_KR"
+                class="login-signup"
+                >회원가입</a
+              >
             </div>
           </div>
         </div>
 
-
-        <div id="main-second-block">       
-
+        <div id="main-second-block">
           <div class="float-left">
-            <div id="main-ytn">
+            <section id="main-ytn">
               <h3>연합뉴스</h3>
               <ol>
                 <li>안녕하세요</li>
               </ol>
-            </div>
-            <div id="main-newsstand">        
+            </section>
+            <section id="main-newsstand">
               <h3>뉴스스탠드</h3>
               <ul>
                 <li><img src="./YTN.png" alt="YTN" /></li>
@@ -202,19 +233,18 @@
                 <li><img src="./YTN.png" alt="YTN" /></li>
                 <li><img src="./서울경제.png" alt="서울경제" /></li>
               </ul>
-            </div>
+            </section>
           </div>
 
           <div class="float-left">
-            <div id="main-weather"></div>
-            <div id="main-second-ad"></div>
+            <section id="main-weather"><h3 class="blind">날씨</h3></section>
+            <section id="main-second-ad"><h3 class="blind">광고2</h3></section>
           </div>
-
         </div>
 
         <div id="main-third-block">
-            <div id="main-category">
-              <h3 class="blind">주제별 보기</h3>
+          <section id="main-category">
+            <h3 class="blind">주제별 보기</h3>
             <div id="main-category-top">
               <button id="subject-all">
                 <span class="blind">전체 주제 열기</span>
@@ -240,33 +270,35 @@
                 </ul>
                 <div class="opacity right"></div>
               </div>
-              <button id="subject-prev">
-                <span class="blind">이전 주제</span>
-                <span></span>
-              </button>
-              <button id="subject-next">
-                <span class="blind">다음 주제</span>
-                <span></span>
-              </button>
+              <div>
+                <button id="subject-prev">
+                  <span class="blind">이전 주제</span>
+                  <span></span>
+                </button>
+                <button id="subject-next">
+                  <span class="blind">다음 주제</span>
+                  <span></span>
+                </button>
+              </div>
             </div>
+          </section>
+          <div>
+            <section id="main-shopping">
+              <h3 class="blind">쇼핑</h3>
+              <iframe
+                src="https://castbox.shopping.naver.com/shopbox/main.nhn?"
+                scrolling="no"
+              ></iframe>
+            </section>
           </div>
-            <div id="main-shopping">
-              <iframe src="https://castbox.shopping.naver.com/shopbox/main.nhn?" 
-              frameborder = "0" scrolling="no"></iframe>
-            </div>
         </div>
-
         <div id="main-fourth-block">
-            <div id="main-event">
-              <h3>이벤트</h3>
-            </div>
-            <div id="main-third-ad"></div>
+          <section id="main-event">
+            <h3 class="blind">이벤트</h3>
+          </section>
+          <section id="main-third-ad"><h3 class="blind">광고3</h3></section>
         </div>
-
-      </div>  
-
-      
-      
+      </div>
     </main>
     <footer>
       <div>공지사항</div>

@@ -1,28 +1,3 @@
-* {
-  box-sizing: border-box;
-}
-
-html,
-body {
-  margin: 0;
-  padding: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Malgun Gothic", "맑은 고딕",
-    helvetica, "Apple SD Gothic Neo", sans-serif;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  margin: 0;
-}
-
-.float-left {
-  float: left;
-}
-
 .inline-block {
   display: inline-block;
 }
@@ -373,6 +348,13 @@ main {
 }
 
 #main-ytn h3,
+#main-newsstand h3 {
+  font-size: 14px;
+  padding-top: 15px; /* 글씨 외에 다른 요소들이 있으면 line-height로 X */
+  padding-left: 15px;
+}
+
+#main-ytn h3,
 #main-ytn ol {
   display: inline-block;
 }
@@ -469,6 +451,7 @@ main {
 #main-shopping iframe {
   width: 330px;
   height: 837px;
+  border: none;
 }
 
 #main-fourth-block {
@@ -544,7 +527,7 @@ main {
   white-space: nowrap;
   overflow: hidden;
   height: 45px;
-  width: 1000px;
+  width: 700px;
 }
 
 #subject-list li {
