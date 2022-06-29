@@ -29,7 +29,7 @@ body {
   height: 1px;
 }
 
-div#header-center {
+.center-align {
   margin: 0 auto;
   width: 1080px;
 }
@@ -113,6 +113,7 @@ div#header-search h1 {
   transform: translateY(-50%); 
   */
 }
+
 /* 버튼이 세로 가운데 정렬이 안되는 이유는
 이미 버튼이 기본적으로 세로 가운데 정렬을 하기 때문! */
 
@@ -136,3 +137,58 @@ position: absolute; //태그의 containing block으로부터 얼마나 떨어졌
 
 position: fixed; //위치가 어디에 있든 containing block이 그냥 화면!!
  */
+
+nav ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+nav li {
+  display: inline-block;
+}
+
+nav li span:first-child {
+  height: 16px;
+  background-image: url(https://s.pstatic.net/static/www/img/uit/2019/sp_nav.png);
+  background-repeat: no-repeat;
+  display: inline-block;
+}
+
+nav li:first-child span:first-child {
+  /* li 중 ul의 첫번째 자식, span 중 그 li의 첫번째 자식 */
+  width: 25px;
+  background-position: 0 -285px;
+}
+
+nav li:nth-child(2) span:first-child {
+  /* li 중 ul의 첫번째 자식, span 중 그 li의 첫번째 자식 */
+  width: 27px;
+  background-position: -279px -52px;
+}
+
+nav li:nth-child(3) span:first-child {
+  /* li 중 ul의 첫번째 자식, span 중 그 li의 첫번째 자식 */
+  width: 40px;
+  background-position: -100px -182px;
+}
+
+nav li:nth-child(4) span:first-child {
+  /* li 중 ul의 첫번째 자식, span 중 그 li의 첫번째 자식 */
+  width: 40px;
+  background-position: -101px -156px;
+}
+
+nav li:nth-child(5) span:first-child {
+  /* li 중 ul의 첫번째 자식, span 중 그 li의 첫번째 자식 */
+  width: 26px;
+  background-position: -279px -156px;
+}
+
+nav li:nth-child(6) span:first-child {
+  /* li 중 ul의 첫번째 자식, span 중 그 li의 첫번째 자식 */
+  width: 25px;
+  background-position: -70px -285px;
+}
+
+/* but nth-child는 유지보수 시 단점이 있으므로 class로 주는 것이 낫다! */
