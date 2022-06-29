@@ -23,6 +23,10 @@ h6 {
   float: left;
 }
 
+.inline-block {
+  display: inline-block;
+}
+
 #fixed {
   position: fixed;
   top: 50px;
@@ -342,6 +346,42 @@ main {
   float: left;
 }
 
+#main-login .login-wrapper {
+  padding: 15px 25px;
+}
+
+#main-login .login-wrapper a {
+  display: block;
+}
+
+#main-login .login-text {
+  color: #888;
+  font-size: 12px;
+  line-height: 14px;
+}
+
+#main-login .login-image {
+  background: url(./sp_login.png) 0 -47px no-repeat;
+  display: inline-block;
+
+  margin-top: 12px;
+
+  width: 280px;
+  height: 37px;
+}
+
+#main-login .login-signup {
+  float: right;
+  font-size: 12px;
+  line-height: 38px;
+  color: #666;
+  text-decoration: none;
+}
+
+#main-login .login-signup:hover {
+  text-decoration: underline;
+}
+
 #main-second-block {
   display: inline-block;
   vertical-align: top;
@@ -485,3 +525,10 @@ inline block 간의 문제 해결 방법
 세로 : vertical align top
 가로 : float left
 */
+
+/*
+button과 a태그의 차이
+ a태그 : 다른곳으로 이동, 커서 바뀜
+ 버튼 : 커서 안바뀜
+ form : 버튼을 누르면 form에 적힌 곳으로 이동
+ */
