@@ -181,11 +181,11 @@ nav ul {
   list-style: none;
 }
 
-nav li {
+#nav-menu li {
   display: inline-block;
 }
 
-nav li span:first-child {
+#nav-menu li span:first-child {
   height: 16px;
   background-image: url(https://s.pstatic.net/static/www/img/uit/2019/sp_nav.png);
   background-repeat: no-repeat;
@@ -193,44 +193,44 @@ nav li span:first-child {
   margin-left: 10px;
 }
 
-nav li span.nav-item-mail {
+#nav-menu li span.nav-item-mail {
   /* li 중 ul의 첫번째 자식, span 중 그 li의 첫번째 자식 */
   width: 25px;
   background-position: 0 -285px;
   margin-left: 0;
 }
 
-nav li:nth-child(2) span:first-child {
+#nav-menu li:nth-child(2) span:first-child {
   /* li 중 ul의 첫번째 자식, span 중 그 li의 첫번째 자식 */
   width: 27px;
   background-position: -279px -52px;
 }
 
-nav li:nth-child(3) span:first-child {
+#nav-menu li:nth-child(3) span:first-child {
   /* li 중 ul의 첫번째 자식, span 중 그 li의 첫번째 자식 */
   width: 40px;
   background-position: -100px -182px;
 }
 
-nav li:nth-child(4) span:first-child {
+#nav-menu li:nth-child(4) span:first-child {
   /* li 중 ul의 첫번째 자식, span 중 그 li의 첫번째 자식 */
   width: 40px;
   background-position: -101px -156px;
 }
 
-nav li:nth-child(5) span:first-child {
+#nav-menu li:nth-child(5) span:first-child {
   /* li 중 ul의 첫번째 자식, span 중 그 li의 첫번째 자식 */
   width: 26px;
   background-position: -279px -156px;
 }
 
-nav li:nth-child(6) span:first-child {
+#nav-menu li:nth-child(6) span:first-child {
   /* li 중 ul의 첫번째 자식, span 중 그 li의 첫번째 자식 */
   width: 25px;
   background-position: -70px -285px;
 }
 
-nav li:nth-child(7) span:first-child {
+#nav-menu li:nth-child(7) span:first-child {
   /* li 중 ul의 첫번째 자식, span 중 그 li의 첫번째 자식 */
   width: 35px;
   background-position: -125px -130px;
@@ -246,8 +246,31 @@ nav li:nth-child(7) span:first-child {
 
 #search-ranking {
   position: absolute;
-  top: 16px;
-  right: 100px;
+  top: 14px;
+  right: 0;
+
+  width: 198px;
+  height: 20px;
+}
+
+#search-ranking:hover ul {
+  display: inline-block;
+}
+
+#search-ranking ul {
+  position: absolute;
+  top: -15px;
+  right: 0;
+
+  display: none;
+  list-style: none;
+  padding: 17px;
+  margin: 0;
+
+  width: 332px;
+  height: 334px;
+  border: 1px solid #aaa;
+  background: white;
 }
 
 #rank-number {
