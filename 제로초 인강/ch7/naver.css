@@ -407,7 +407,6 @@ main {
 
   width: 60%;
   height: auto;
-
   top: 50%; /* 이미지의 윗부분 기준 세로 가운데 정렬 */
   transform: translateY(-50%); /* 이미지 크기의 절반만큼 위로 올림 */
   /* 세로정렬 */
