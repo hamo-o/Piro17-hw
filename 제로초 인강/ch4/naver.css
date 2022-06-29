@@ -81,11 +81,6 @@ div#header-search h1 {
   top: -2px;
 }
 
-/* 
-block format context 
-stacking context
-*/
-
 #header-search fieldset button .search-image {
   background: url(./sp_search.png) -3px -60px;
   background-repeat: no-repeat;
@@ -94,3 +89,16 @@ stacking context
   display: inline-block;
   margin: 14px;
 }
+
+/* 
+MDN 사이트 참조
+block format context 
+stacking context
+*/
+
+/* 
+position: relative; //원래의 static 위치로부터 얼마나 떨어졌는가?
+position: absolute; //태그의 containing block으로부터 얼마나 떨어졌는가? 
+>> 기본 containing block은 html이다!
+>> top, right, bottom, left 주지 않아도 static에서 벗어남
+ */
