@@ -1,0 +1,33 @@
+.blind {
+  position: absolute;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  margin: -1px;
+  width: 1px;
+  height: 1px;
+}
+/* 사용자 눈에는 보이지 않지만 스크린 리더로는 읽힌다 vs display : none; */
+/* 
+# : id, 고유한 것 
+. : class, 같은 class 여러 번 사용 가능! 
+하나의 태그에 여러 개의 클래스 적용하려면 띄어쓰기로 구분하기
+*/
+
+div#header-center {
+  margin: 0 auto;
+  width: 1080px;
+}
+
+div#header-search > h1 {
+  width: 280px;
+  display: inline-block;
+}
+
+#header-search h2 {
+  display: none;
+}
+
+#header-search fieldset {
+  width: 520px;
+  display: inline-block;
+}
