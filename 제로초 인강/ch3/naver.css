@@ -18,9 +18,28 @@ div#header-center {
   width: 1080px;
 }
 
-div#header-search > h1 {
-  width: 280px;
+#header-search a {
+  text-decoration: none;
+}
+
+div#header-search h1 {
+  width: 198px;
+  height: 48px;
   display: inline-block;
+  /* 
+  background-image: url(./sp_search.png); //경로 대신 주소 적어줘도 됨
+  background-position: -10px -10px; //왼쪽 위
+  background-repeat: no-repeat; //이미지가 공간을 채우기 위해 반복되지 않음
+  >> 얘네 다 한방에 background로 줄일 수 있다 
+  */
+  background: url(./sp_search.png) -4px -4px no-repeat;
+
+  /* text-indent: 100%; 글자 들여쓰기*/
+  /* overflow: hidden; h1 공간 바깥으로 나간 글자 안보이게 하기*/
+}
+
+#header-search h1 span {
+  display: none;
 }
 
 #header-search h2 {
@@ -28,6 +47,21 @@ div#header-search > h1 {
 }
 
 #header-search fieldset {
-  width: 520px;
+  margin-left: 20px;
+
+  /* 
+  padding-top: 12px;
+  padding-bottom: 12px;
+  padding-left: 10px;
+  padding-right: 0px; 
+  >> 북 동 남 서 시계방향 순서대로 합칠 수 있다!
+  */
+
+  padding: 12px 0 12px 10px;
+
+  width: 521px;
+  height: 49px;
   display: inline-block;
+
+  border: 2px solid #03cf5d; /*북동남서 다 같으면 한번에 적을 수 있음*/
 }
