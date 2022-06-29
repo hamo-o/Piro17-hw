@@ -1,0 +1,85 @@
+header {
+  height: 70px;
+}
+
+header,
+body {
+  background-image: url(./github-background.png);
+}
+
+footer {
+  background: white;
+}
+
+.center-align {
+  margin: 0 auto;
+  width: 1080px;
+}
+
+#left-header ul {
+  float: left;
+
+  margin-top: 25px;
+  margin-left: 0;
+  list-style: none;
+}
+
+#left-header li {
+  float: left;
+  margin-right: 10px;
+  color: white;
+}
+
+#right-header ul {
+  float: right;
+
+  margin-top: 15px;
+  list-style: none;
+}
+
+#right-header li {
+  float: left;
+  margin-right: 10px;
+  color: white;
+}
+
+#main-container {
+  display: inline-block;
+  width: 1080px;
+  height: 550px;
+}
+
+#description {
+  float: left;
+
+  width: 540px;
+  height: 550px;
+
+  padding-top: 100px;
+}
+
+#description h1 {
+  font-size: 70px;
+  color: white;
+
+  line-height: 55px;
+}
+
+#description p {
+  font-size: 20px;
+  font-weight: 100;
+  letter-spacing: 1px;
+  color: white;
+
+  padding-right: 60px;
+}
+
+#login-box {
+  float: left;
+  background: white;
+
+  width: 540px;
+  height: 550px;
+
+  padding: 20px;
+}
