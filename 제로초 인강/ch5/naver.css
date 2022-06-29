@@ -34,6 +34,21 @@ body {
   width: 1080px;
 }
 
+#header-top {
+  float: right;
+}
+
+#header-top span {
+  color: #888; /* 똑같은 글자 두글자씩 반복되면 줄일 수 있다 ex) abcabc >> abc */
+  letter-spacing: -1px;
+  font-size: 11px;
+  line-height: 22px;
+}
+
+#header-search {
+  clear: both;
+}
+
 #header-search a {
   text-decoration: none;
   vertical-align: middle;

@@ -17,7 +17,7 @@
         overflow의 auto와 hidden의 차이 
         넘칠 때 auto는 스크롤바를 만들고, hidden은 잘라버린다
       -->
-      <div style="background-color: hotpink; overflow: auto">
+      <!-- <div style="background-color: hotpink; overflow: auto">
         <div style="float: right; background-color: green; height: 200px">
           둥둥둥둥
         </div>
@@ -26,15 +26,17 @@
           eaque cumque, sed velit quo distinctio minus sit? Sint doloremque,
           iste saepe nostrum placeat commodi, nisi magni nihil animi pariatur
           repellat!
-        </div>
+        </div> -->
       </div>
       <div class="center-align">
-        <div>
-          <span>네이버를 시작페이지로</span>
-          <span>쥬니어네이버</span>
-          <span>해피빈</span>
+        <div id="header-top">
+          <span>네이버를 시작페이지로 > | </span>
+          <span>쥬니어네이버 | </span>
+          <span>해피빈 | </span>
         </div>
-        <div id="header-search">
+        <div id="header-search"> 
+          <!--float를 감싸고 있는 영역에 clear 사용하면 구역 나눠 준다-->
+          <!-- float보다는 position: absolute 사용하기  -->
           <a href="https://www.naver.com">
             <h1>
               <span>네이버</span>
