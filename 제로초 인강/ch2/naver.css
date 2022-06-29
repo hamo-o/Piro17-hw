@@ -6,3 +6,37 @@ div#header-center {
   width: 1080px;
 }
 /* 조상의 속성을 자손이 덮어씌운다 */
+
+div#header-search > h1 {
+  width: 280px;
+  display: inline-block;
+}
+
+#header-search h2 {
+  display: none; /* 얘는 스크린리더도 못읽음!! */
+}
+
+#header-search fieldset {
+  width: 520px;
+  display: inline-block;
+}
+
+/* 
+div의 기본 속성인 display: block; 때문에 나머지 부분이 margin으로 꽉차있음 
+>> 해결 방법 1 : display: inline-block;
+>> 해결 방법 2 : <span></span> 태그 사용 >> 기본 속성이 display: inline;
+
+block / inline / inline-block 차이
+width에 상관 없이 100% 차지 / 컨텐츠 길이 만큼만 차지함 / 컨텐츠 길이 만큼 차지하나 빈공간 설정 가능
+*/
+
+/* 
+#header-center h1 {
+  background: red;
+} 
+*/
+
+/* 
+> : 자식을 가리킨다
+띄어쓰기 : 자손을 가리킨다
+*/
