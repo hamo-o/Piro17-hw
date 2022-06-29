@@ -1,0 +1,8 @@
+/* selector : html 태그를 선택한다 */
+
+div#header-center {
+  /*div 생략 가능*/
+  margin: 0 auto;
+  width: 1080px;
+}
+/* 조상의 속성을 자손이 덮어씌운다 */
