@@ -506,20 +506,60 @@ main {
 #subject-prev {
   float: left;
   height: 45px;
+  padding: 0;
 }
 
 #subject-list {
   width: 603px;
+  position: relative;
+}
+
+.opacity {
+  opacity: 0.5;
+  background: white;
+}
+
+/* gradient / mask image와 같은 속성이 있다 */
+
+.opacity.left {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 45px;
+  width: 15px;
+}
+
+.opacity.right {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 45px;
+  width: 15px;
 }
 
 #subject-list ul {
   list-style: none;
   margin: 0;
   padding: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  height: 45px;
+  width: 1000px;
 }
 
 #subject-list li {
   float: left;
+  margin-right: 10px;
+  padding: 14px 7px 0;
+  font-weight: 700;
+  font-size: 14px;
+}
+
+#subject-list li.highlight {
+  border-bottom: 3px solid #00c73c;
+  color: #00b336;
+  font-weight: 700;
+  height: 45px;
 }
 
 #subject-all,
