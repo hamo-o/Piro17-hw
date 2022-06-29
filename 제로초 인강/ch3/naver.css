@@ -85,3 +85,24 @@ div#header-search h1 {
 }
 
 /* vertical-align은 display가 inline / inline-block 일 때만 적용됨 */
+
+#header-search fieldset button {
+  width: 49px;
+  height: 49px;
+
+  border: none;
+  padding: 0;
+
+  background: #03cf5d;
+}
+
+#header-search fieldset button .search-image {
+  /*길다 싶으면 id로 대체*/
+
+  background: url(./sp_search.png) -3px -60px;
+  background-repeat: no-repeat;
+  width: 21px;
+  height: 21px;
+  display: inline-block; /* 가로세로 마음대로 조정*/
+  margin: 14px;
+}
