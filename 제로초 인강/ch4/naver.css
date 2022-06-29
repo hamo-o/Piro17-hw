@@ -153,12 +153,14 @@ nav li span:first-child {
   background-image: url(https://s.pstatic.net/static/www/img/uit/2019/sp_nav.png);
   background-repeat: no-repeat;
   display: inline-block;
+  margin-left: 14px;
 }
 
-nav li:first-child span:first-child {
+nav li span.nav-item-mail {
   /* li 중 ul의 첫번째 자식, span 중 그 li의 첫번째 자식 */
   width: 25px;
   background-position: 0 -285px;
+  margin-left: 0;
 }
 
 nav li:nth-child(2) span:first-child {
@@ -192,3 +194,10 @@ nav li:nth-child(6) span:first-child {
 }
 
 /* but nth-child는 유지보수 시 단점이 있으므로 class로 주는 것이 낫다! */
+
+/* 
+css 우선순위
+- 기본적으로는 뒤에 나오는 css가 우선순위가 높다
+- !important > inline style attribute > id > 다른 attribute class > tag element
+- 우선순위가 같다면 태그 개수로!
+ */
