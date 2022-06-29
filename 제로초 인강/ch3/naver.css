@@ -1,3 +1,7 @@
+* {
+  box-sizing: border-box;
+}
+
 .blind {
   position: absolute;
   overflow: hidden;
@@ -20,6 +24,7 @@ div#header-center {
 
 #header-search a {
   text-decoration: none;
+  vertical-align: middle;
 }
 
 div#header-search h1 {
@@ -61,7 +66,22 @@ div#header-search h1 {
 
   width: 521px;
   height: 49px;
+  /* only content 크기! border까지 합한 값으로 설정해 줘야함 */
+
   display: inline-block;
 
-  border: 2px solid #03cf5d; /*북동남서 다 같으면 한번에 적을 수 있음*/
+  border: 2px solid #03cf5d; /*북동남서 다 같으면 한번에 적을 수 있음, hex color 표기법 */
+  /* 
+  box-sizing: content-box; 디폴트값 ( only content ) 
+  box-sizing: border-box;  border, padding 다 합친 걸로!! 
+  */
+  vertical-align: middle;
 }
+
+#header-search fieldset input {
+  border: none;
+  padding: 0;
+  outline: none;
+}
+
+/* vertical-align은 display가 inline / inline-block 일 때만 적용됨 */
