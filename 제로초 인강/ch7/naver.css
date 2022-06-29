@@ -19,8 +19,8 @@ h6 {
   margin: 0;
 }
 
-.inline-block {
-  display: inline-block;
+.float-left {
+  float: left;
 }
 
 #fixed {
@@ -294,11 +294,18 @@ main {
   float: left;
 }
 
-#main-second-block .inline-block:first-child {
-  width: 740px;
+#main-second-block {
+  display: inline-block;
+  vertical-align: top;
+  margin-bottom: 8px;
 }
 
-#main-second-block .inline-block:last-child {
+#main-second-block .float-left:first-child {
+  width: 740px;
+  margin-right: 8px;
+}
+
+#main-second-block .float-left:last-child {
   width: 332px;
   vertical-align: top;
 }
@@ -314,7 +321,6 @@ main {
   height: 46px;
   background: white;
   margin-bottom: 8px;
-  margin-right: 8px;
 }
 
 #main-newsstand {
@@ -323,7 +329,8 @@ main {
   height: 246px;
   background: white;
   margin-right: 8px;
-  margin-bottom: 8px;
+
+  vertical-align: top;
 }
 
 #main-newsstand h3 {
@@ -371,12 +378,16 @@ main {
   width: 332px;
   height: 150px;
   background: #555;
+
+  vertical-align: top;
 }
 
 #main-third-block {
   display: inline-block;
   width: 100%;
   margin-bottom: 8px;
+
+  vertical-align: top;
 }
 
 #main-category {
@@ -389,14 +400,21 @@ main {
 
 #main-shopping {
   float: left;
-  width: 332px;
+  width: 330px;
   height: 837px;
   background: white;
+}
+
+#main-shopping iframe {
+  width: 330px;
+  height: 837px;
 }
 
 #main-fourth-block {
   display: inline-block;
   width: 100%;
+
+  vertical-align: top;
 }
 
 #main-event {
