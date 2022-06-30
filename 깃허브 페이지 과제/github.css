@@ -33,7 +33,7 @@ footer {
 #right-header ul {
   float: right;
 
-  margin-top: 15px;
+  margin-top: 25px;
   list-style: none;
 }
 
@@ -59,27 +59,72 @@ footer {
 }
 
 #description h1 {
-  font-size: 70px;
+  font-size: 65px;
   color: white;
 
-  line-height: 55px;
+  line-height: 60px;
 }
 
 #description p {
-  font-size: 20px;
-  font-weight: 100;
+  font-size: 18px;
+  font-weight: 400;
   letter-spacing: 1px;
-  color: white;
+  color: rgb(172, 172, 172);
 
   padding-right: 60px;
 }
 
-#login-box {
+#login {
   float: left;
-  background: white;
 
   width: 540px;
   height: 550px;
+}
 
-  padding: 20px;
+#login-box {
+  background: white;
+  border-radius: 2%;
+
+  width: 440px;
+  height: 500px;
+
+  margin: 0 40px 0;
+  padding: 30px;
+}
+
+#login-box .title span:first-child {
+  font-size: 13px;
+  font-weight: 700;
+  color: rgb(88, 88, 88);
+}
+
+#login-box .Email input {
+  background: white;
+}
+
+#login-box input {
+  background: rgb(233, 242, 255);
+  border-radius: 3%;
+  border: 1px solid lightgray;
+
+  width: 380px;
+  height: 40px;
+
+  margin: 0 0 15px;
+}
+
+#login-box .lines {
+  font-size: 11px;
+  font-weight: 600;
+  color: rgb(121, 121, 121);
+
+  line-height: 10px;
+}
+
+#login-box a {
+  font-size: 11px;
+  font-weight: 500;
+  color: rgb(52, 116, 255);
+
+  line-height: 8px;
 }
