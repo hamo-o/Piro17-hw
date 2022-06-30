@@ -44,11 +44,15 @@ footer {
   list-style: none;
 }
 
-#right-header li {
+#right-header li,
+#right-header li a {
   float: left;
   margin-right: 10px;
   color: white;
+
+  text-decoration: none;
 }
+
 #main-container {
   display: inline-block;
   width: 1080px;
