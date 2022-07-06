@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>스톱워치</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="./stopwatch.css" />
+
+    <!-- font awesome 아이콘 -->
+    <script
+      src="https://kit.fontawesome.com/b453b8b1fc.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <div id="all">
+      <div id="title">
+        <i class="fa-solid fa-stopwatch"></i>
+        <h2>피로그래밍 스톱워치</h2>
+      </div>
+
+      <div id="watch">
+        <div id="watch-time">
+          <h1>00:00</h1>
+        </div>
+        <div id="watch-btns">
+          <button id="btn-start" type = "button"class="watch-btn">start</button>
+          <button id="btn-stop" type = "button"class="watch-btn">stop</button>
+          <button id="btn-reset" type = "button" class="watch-btn">reset</buttons>
+        </div>
+      </div>
+
+      <div id="watch-record">
+        <div id="record-header">
+          <i class="fa-regular fa-circle"></i>
+          <h3>구간 기록</h3>
+          <i class="fa-solid fa-trash-can"></i>
+        </div>
+        <div id="record-content">
+          <ul id="record-times">
+            <li>
+              <div class="record-time">
+                <i class="fa-regular fa-circle"></i>
+                <span>00:00</span>
+                <span></span>
+              </div>
+            </li>
+            <li class="record-time">
+              <i class="fa-regular fa-circle"></i>
+              <span>00:00</span>
+              <span></span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <script src="./stopwatch.js"></script>
+  </body>
+</html>
