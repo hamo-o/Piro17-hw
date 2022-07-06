@@ -25,7 +25,7 @@ let sec = 0;
 let msec = 0;
 
 let select = 0;
-let target = 0;
+let target = [];
 
 title.addEventListener("click", () => {
   window.location.reload();
@@ -105,11 +105,15 @@ function deleteListAll() {
     }
 
     record_head.replaceChild(header_circle, header_check);
-
-    select = 0;
   } else if (select == 2) {
-    record_lists.removeChild(target);
+    let i = 0;
+    while (target[i]) {
+      record_lists.removeChild(target[i]);
+      i++;
+    }
   }
+  select = 0;
+  n = 0;
 }
 
 start_btn.addEventListener("click", start);
@@ -119,11 +123,13 @@ reset_btn.addEventListener("click", reset);
 header_circle.addEventListener("click", selectAll);
 trash.addEventListener("click", deleteListAll);
 
+let n = 0;
 record_lists.addEventListener("click", (e) => {
   check = document.createElement("i");
   check.className = `fa-regular fa-circle-check`;
-  target = e.target.parentNode;
-  target.replaceChild(check, target.firstElementChild);
+  target[n] = e.target.parentNode;
+  target[n].replaceChild(check, target[n].firstElementChild);
+  n++;
 
   select = 2;
 });
