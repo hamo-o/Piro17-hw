@@ -53,7 +53,6 @@ while True:
             flag = 1
             print('playerB : {0}'.format(num + 1))
             num += 1
-
         
     if num != 31:
         pass
