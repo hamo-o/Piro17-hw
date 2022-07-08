@@ -1,3 +1,5 @@
+from random import randint
+
 num = 0
 
 class Not123(Exception):
@@ -10,36 +12,42 @@ class End(Exception):
 def brGame(player):
     global num
     
-    try:       
-        k = int(input('부를 숫자의 개수를 입력하세요(1, 2, 3만 입력 가능) : '))
-        if k != 1 and k != 2 and k != 3:
-            raise Not123
-    except ValueError:
-        print('정수를 입력하세요')
-    except Not123 as e:
-        print(e)
+    if player == p:
+        while True:
+            try:       
+                k = int(input('부를 숫자의 개수를 입력하세요(1, 2, 3만 입력 가능) : '))
+                if k != 1 and k != 2 and k != 3:
+                    raise Not123
+            except ValueError:
+                print('정수를 입력하세요')
+            except Not123 as e:
+                print(e)
+            else:
+                break
+    else:
+        k = randint(1,3)
 
     for i in range(k):
         if num == 31:
             break
         else:
-            print('player{0} : {1}'.format(player, num + 1))
+            print('{0} : {1}'.format(player, num + 1))
             num += 1
             
     if num == 31:
-        if player == a:
-            print('playerB win!')
+        if player == c:
+            print('player win!')
         else:
-            print('playerA win!')
+            print('computer win!')
         raise End
             
-a = 'A'
-b = 'B'
+c = 'computer'
+p = 'player'
 
 while True:
     try:
-        brGame(a)
-        brGame(b)
+        brGame(c)
+        brGame(p)
     except End:
         break
 
