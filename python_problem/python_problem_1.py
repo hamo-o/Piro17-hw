@@ -15,3 +15,6 @@ while True:
         print('정수를 입력하세요')
     except Not123 as e:
         print(e)
+
+for num in range(k):
+    print('playerA : {0}'.format(num + 1))
