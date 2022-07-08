@@ -1,10 +1,11 @@
 num = 0
+flag = 0
 
 class Not123(Exception):
     def __init__(self):
         super().__init__('1,2,3 중 하나를 입력하세요')
 
-while num != 31:
+while True:
     while True:
         try:       
             a = int(input('부를 숫자의 개수를 입력하세요(1, 2, 3만 입력 가능) : '))
@@ -18,8 +19,20 @@ while num != 31:
             print(e)
 
     for i in range(a):
-        print('playerA : {0}'.format(num + 1))
-        num += 1
+        if num == 31:
+            break
+        else:
+            flag = 0
+            print('playerA : {0}'.format(num + 1))
+            num += 1
+    
+    if num == 31:
+        if flag == 1:
+            print('playerA win!')
+            break
+        else:
+            print('playerB win!')
+            break
         
     while True:
         try:       
@@ -34,5 +47,19 @@ while num != 31:
             print(e)
 
     for i in range(b):
-        print('playerB : {0}'.format(num + 1))
-        num += 1
+        if num == 31:
+            break
+        else:
+            flag = 1
+            print('playerB : {0}'.format(num + 1))
+            num += 1
+
+        
+    if num != 31:
+        pass
+    elif flag == 1:
+        print('playerA win!')
+        break
+    else:
+        print('playerB win!')
+        break
