@@ -1,10 +1,11 @@
-from random import randint
 
-class NotInRange(Exception):
-    pass
         
 def UpAndDown(p, start):
-        
+    from random import randint
+    
+    class NotInRange(Exception):
+        pass
+    
     answer = randint(1,50)
     min_num = 1
     max_num = 50
@@ -69,3 +70,14 @@ def UpAndDown(p, start):
     p['벌주량'][i] += 1
     
     return p
+
+
+if __name__ == '__main__':
+    # 딕셔너리 임시 지정
+    players = {'이름': ['영훈', '병우', '현영', '선희'],
+                '주량': [1, 1, 1, 1],
+                '벌주량': [0, 0, 0, 0]}
+    idx = 2
+    players = UpAndDown(players, idx)
+    print()
+    print(players)
