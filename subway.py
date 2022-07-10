@@ -1,9 +1,3 @@
-# 필요한 모듈 불러오기
-import requests
-from bs4 import BeautifulSoup as bs
-import random
-import time
-
 # 지하철게임 함수 정의
 def subwayGame(dict):
     # 3호선 위키백과 크롤링
@@ -84,6 +78,11 @@ def subwayGame(dict):
 
 # 테스트 코드
 if __name__ == '__main__':
+    # 필요한 모듈 불러오기
+    import requests
+    from bs4 import BeautifulSoup as bs
+    import random
+    import time
     # 딕셔너리 임시 지정
     players = {'이름':['영훈', '병우', '현영', '선희'],
             '주량':[1,1,1,1]}
