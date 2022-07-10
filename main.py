@@ -1,3 +1,4 @@
+        ## 게임 실행
 ## import : 모듈 추가
 import random
 import time
