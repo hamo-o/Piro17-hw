@@ -1,14 +1,6 @@
-from random import *
-import copy
-
-players = {'이름':['영훈', '병우', '선희', '현영'], '주량':[1, 3, 5, 2],'벌주량': [0,0,0,0]}
-pnum=4
-
-idx = 0
-# idx=3
-
-def apartment(cur_player, Howmany):
-  
+def apartment(players, idx): # (이름, pnum)
+  import random
+  import copy
   print("~"*120)
   print("""
           _______                    __                         __        _______                       
@@ -19,7 +11,7 @@ def apartment(cur_player, Howmany):
     """)
   print("~"*120)
 
-  print(f'{cur_player} 님이 아파트 게임을 선택했어요!😀')
+  print(f"{players['이름'][idx]} 님이 아파트 게임을 선택했어요!😀")
   print("~"*10, "아~파트 아파트 아~파트 아파트🏢 ", "~"*10)
   
   while True:
@@ -33,7 +25,7 @@ def apartment(cur_player, Howmany):
       except:
         print('정수로 입력해야쥐~😏',end='\n\n')
     else:
-      floor = randint(2,20)
+      floor = random.randint(2,20)
       print('아파트 몇 층? : ', floor)
       break
     
@@ -42,10 +34,10 @@ def apartment(cur_player, Howmany):
   player_double = copy.deepcopy(players['이름'])
   player_double.extend(players['이름'])
   # player_shuffle 는 player_double의 순서를 섞은것
-  shuffle(player_double)
+  random.shuffle(player_double)
   
-  share = floor // (Howmany*2)
-  remainder = floor % (Howmany*2)
+  share = floor // (len(players['이름'])*2)
+  remainder = floor % (len(players['이름'])*2)
 
   if remainder > 0:
     for i in player_double[remainder-1::-1]:
@@ -65,5 +57,10 @@ def apartment(cur_player, Howmany):
 
   print(f"{players['이름'][loser_index]} 님이 걸리셨어요! 😜")
   print("마셔마셔~ 먹고죽어~ 😈")
+  return players
 
-apartment(players['이름'][idx],pnum)
+if __name__ == '__main__':
+  players = {'이름':['영훈', '병우', '선희', '현영'], '주량':[1, 3, 5, 2],'벌주량': [0,0,0,0]}
+  idx = 0
+  players = apartment(players, idx)
+  print(players)
