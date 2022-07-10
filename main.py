@@ -3,7 +3,8 @@
 import random
 import time
 import subway as game1
-
+import record as game2
+import apartment as game3
 #1 게임 인트로! : 아스키아트, 인트로멘트
 
 
@@ -132,11 +133,11 @@ while True:
 
         ## 게임 실행
         if gnum == 1:
-            game1.subwayGame(players, idx)
-        # elif gnum == 2:
-        #     Record(players)
-        # elif gnum == 3:
-        #     Apartment(players)
+            players = game1.subwayGame(players, idx)
+        elif gnum == 2:
+            players = game2.record(players, idx)
+        elif gnum == 3:
+            players = game3.apartment(players, idx)
         # else:
         #     UpAndDown(players)
         flag = input("술게임 진행중! 도망가고 싶으면 'Exit'를 입력하세요. 계속하고 싶으면 엔터를 눌러주세요. : ")
