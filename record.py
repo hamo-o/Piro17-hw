@@ -4,12 +4,9 @@
 # 블랙핑크 : Lovesick Girls, 불장난, 마지막처럼, 휘파람, How You Like That, STAY, Pretty Savage, 붐바야
 # 소녀시대 : Lion Heart, PARTY, Holiday, Gee, Kissing You, Mr.Mr., I GOT A BOY, The Boys
 
-import requests
-from bs4 import BeautifulSoup as bs
-import random
-import time
 
-# players = {'이름':["영훈", "병우", "선희", "현영"],'주량':[5, 3, 5, 2], '벌주량':[0,0,0,0]} # 나중에 삭제
+
+#players = {'이름':["영훈", "병우", "선희", "현영"],'주량':[5, 3, 5, 2], '벌주량':[0,0,0,0]} # 나중에 삭제
 
 #musics = []
 
@@ -42,6 +39,10 @@ def asciiArt():
 
 
 def record(players, idx): # 메인 함수
+    import requests
+    from bs4 import BeautifulSoup as bs
+    import random
+    import time
     musics = music_setting()
     asciiArt()
     print(f"{players['이름'][idx]}의 차례입니다!")
