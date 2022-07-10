@@ -1,5 +1,11 @@
 # 지하철게임 함수 정의
 def subwayGame(dict, idx):
+    # 필요한 모듈 불러오기
+    import requests
+    from bs4 import BeautifulSoup as bs
+    import random
+    import time
+    
     # 3호선 위키백과 크롤링
     url = "https://ko.wikipedia.org/wiki/%EC%88%98%EB%8F%84%EA%B6%8C_%EC%A0%84%EC%B2%A0_3%ED%98%B8%EC%84%A0"
     response = requests.get(url)
@@ -79,11 +85,6 @@ def subwayGame(dict, idx):
 
 # 테스트 코드
 if __name__ == '__main__':
-    # 필요한 모듈 불러오기
-    import requests
-    from bs4 import BeautifulSoup as bs
-    import random
-    import time
     # 딕셔너리 임시 지정
     players = {'이름': ['영훈', '병우', '현영', '선희'],
                 '주량': [1, 1, 1, 1],
