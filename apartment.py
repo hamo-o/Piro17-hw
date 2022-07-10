@@ -1,28 +1,11 @@
 from random import *
 import copy
-# from sys import exec_prefix
-#####인트로 그림 및 멘트 & 시작 여부 묻기
-##사용자 이름 받기
-#user = input('사용자의 이름을 입력해주세요')
-player = {'이름':['영훈', '병우', '선희', '현영'], '주량':[1, 3, 5, 2],'벌주량': [0,0,0,0]}
+
+players = {'이름':['영훈', '병우', '선희', '현영'], '주량':[1, 3, 5, 2],'벌주량': [0,0,0,0]}
 pnum=4
-# player['이름'] .append(user)
-##본인 주량 선택(보기 중에서 선택 & 예외처리)
-##초대할 명 수 고르기 (사람 및 주량은 랜덤)
-##Howmany = input('몇명을 초대할까요? (2~4명)')
-#--------------------------------------------------#
-#현재까지 몇잔 마셨는지, 치사량까지 몇잔 남았는지
 
-for i in range(pnum):
-  print(player['이름'][i] ," :", player['주량'][i] )
-#게임 리스트 (게임 끝날 때마다 2개 반복)
-
-
-#무슨 게임~ 게임스타트~
-#--------------------------------------------------#
-
-#cur_player = players['이름'][idx]
-#Howmany=pnum
+idx = 0
+# idx=3
 
 def apartment(cur_player, Howmany):
   
@@ -40,20 +23,24 @@ def apartment(cur_player, Howmany):
   print("~"*10, "아~파트 아파트 아~파트 아파트🏢 ", "~"*10)
   
   while True:
-    try:
-      # 컴퓨터 사용가능해ㅑ앟ㅁ
-      floor = int(input('아파트 몇층? : '))
-      if floor < 0:
+    if idx ==0:
+      try:
+        floor = int(input('아파트 몇층? : '))
+        if floor < 0:
+          print('정수로 입력해야쥐~😏',end='\n\n')
+        else:
+          break
+      except:
         print('정수로 입력해야쥐~😏',end='\n\n')
-      else:
-        break
-    except:
-      print('정수로 입력해야쥐~😏',end='\n\n')
+    else:
+      floor = randint(2,20)
+      print('아파트 몇 층? : ', floor)
+      break
     
   print()
   # player_double 는 player들을 2번씩 넣은것 (손이 2개니까)
-  player_double = copy.deepcopy(player['이름'])
-  player_double.extend(player['이름'])
+  player_double = copy.deepcopy(players['이름'])
+  player_double.extend(players['이름'])
   # player_shuffle 는 player_double의 순서를 섞은것
   shuffle(player_double)
   
@@ -71,12 +58,12 @@ def apartment(cur_player, Howmany):
 
   print()
 
-  loser_index = player['이름'].index(player_double[remainder-1])
-  player['주량'][loser_index] -= 1
-  player['벌주량'][loser_index] += 1
-  print(player)
+  loser_index = players['이름'].index(player_double[remainder-1])
+  players['주량'][loser_index] -= 1
+  players['벌주량'][loser_index] += 1
+  # print(player)
 
-  print(f"{player['이름'][loser_index]} 님이 걸리셨어요! 😜")
+  print(f"{players['이름'][loser_index]} 님이 걸리셨어요! 😜")
   print("마셔마셔~ 먹고죽어~ 😈")
 
-apartment('용빈',4)
+apartment(players['이름'][idx],pnum)
