@@ -1,7 +1,11 @@
 
         
+import imp
+
+
 def UpAndDown(p, start):
     from random import randint
+    import time
     
     class NotInRange(Exception):
         pass
@@ -24,8 +28,10 @@ def UpAndDown(p, start):
     \  \::/       \  \:\               \  \:\        \  \:\         \__\/                  \__\/        \  \::/       \  \::/       \  \:\    
      \__\/         \__\/                \__\/         \__\/                                              \__\/         \__\/         \__\/    ''')
     print("~"*150)
+    time.sleep(0.5)
     print(f"{p['이름'][start]} 님이 UP&DOWN 게임을 선택했어요!😀")
     print("~"*10,"소주병 뚜껑의 숫자를 맞혀 주세요!", "~"*10)
+    time.sleep(0.5)
     
     i = start
     while True:
@@ -48,8 +54,10 @@ def UpAndDown(p, start):
                     print()
             else:   ## 컴퓨터 차례
                 mynum = randint(min_num, max_num)
+            time.sleep(0.5)
             
             print(f'{player}님은 {mynum}(을/를) 골랐습니다')
+            time.sleep(0.5)
             
             if answer > mynum: ## 정답이 외친 숫자보다 크다면
                 print('➶'*20,'UP!','➶'*20)
@@ -60,6 +68,7 @@ def UpAndDown(p, start):
             else: ## 정답이라면
                 print()
                 print(f'아 누가 술을 마셔 ~~~ {player}(이)가 술을 마셔 {player[0]} ! {player[1]} ! 원 ~~~ 샷 !')
+                time.sleep(0.5)
                 print()
                 break
             print()
