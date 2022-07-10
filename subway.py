@@ -1,5 +1,5 @@
 # 지하철게임 함수 정의
-def subwayGame(dict):
+def subwayGame(dict, idx):
     # 3호선 위키백과 크롤링
     url = "https://ko.wikipedia.org/wiki/%EC%88%98%EB%8F%84%EA%B6%8C_%EC%A0%84%EC%B2%A0_3%ED%98%B8%EC%84%A0"
     response = requests.get(url)
@@ -44,7 +44,6 @@ def subwayGame(dict):
     time.sleep(1)
 
     # 지하철 게임 시작!
-    idx = 0
     while True:
         player_name = dict['이름'][idx]
         # 플레이어일 경우 (플레이어의 idx는 0이라고 가정)
@@ -56,6 +55,7 @@ def subwayGame(dict):
             except:
                 print("\n🤣 땡땡땡땡!!!! 술이 들어간다 쭉쭉쭉쭉죽~ 🤮")
                 dict["주량"][idx] -= 1
+                dict['벌주량'][idx] += 1
                 break
         # 컴퓨터일 경우
         else:
@@ -72,6 +72,7 @@ def subwayGame(dict):
             except:
                 print("\n🤣 땡땡땡땡!!!! 술이 들어간다 쭉쭉쭉쭉죽~ 🤮")
                 dict["주량"][idx] -= 1
+                dict['벌주량'][idx] += 1
                 break
         idx = (idx+1)%4
     return dict
@@ -84,7 +85,10 @@ if __name__ == '__main__':
     import random
     import time
     # 딕셔너리 임시 지정
-    players = {'이름':['영훈', '병우', '현영', '선희'],
-            '주량':[1,1,1,1]}
-    players = subwayGame(players)
+    players = {'이름': ['영훈', '병우', '현영', '선희'],
+                '주량': [1, 1, 1, 1],
+                '벌주량': [0, 0, 0, 0]}
+    idx = 0
+    players = subwayGame(players, idx)
+    print()
     print(players)
