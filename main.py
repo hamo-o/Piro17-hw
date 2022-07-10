@@ -7,8 +7,8 @@
 import random
 import requests
 from bs4 import BeautifulSoup as bs
-import random
 import time
+import copy
 
 ## 게임 인트로! : 아스키아트, 인트로멘트
 ## 같이 꾸며봐요!!
@@ -86,7 +86,7 @@ players['벌주량'].insert(0, 0)
 pnum += 1
 
 ## ----------------------------------------------여기서부터 전체반복----------------------------------------------
-
+idx = 0
 while True:
         ## while문 안에서 치사량에 도달하면 완전 종료 
         if 0 in players['주량']:
@@ -101,65 +101,64 @@ while True:
         ## 리스트에 들어있는 순서대로 계속 돌아가기 위해 for문
         ## 더 좋은 방법..?
         # (영훈) 인덱스를 넘겨주기 위해서 for문 수정했습니다
-        for idx in range(pnum):
             
-            ## for문 안에서 치사량 도달하면 for문 밖으로 나오기
-            if 0 in players['주량']:
-                break
-            
-            ## 플레이어 - 컴1 - 컴2 - 컴3 ... 순서로 게임 선택 반복!
-            ## 인트로 & 술래 이름 게임 안에 넣을지 밖에 넣을지? (영훈) 인트로와 술래 이름은 각자 게임 안에 넣으면 좋을 것 같아요
-            ## 게임 내에서의 순서는??? (영훈) 술래부터 시작하도록 idx를 매개변수로 주면 좋을 것 같아요
-            #----------------------------------------------for문 반복--------------------------------------------------
+        if 0 in players['주량']:
+            break
+        
+        ## 플레이어 - 컴1 - 컴2 - 컴3 ... 순서로 게임 선택 반복!
+        ## 인트로 & 술래 이름 게임 안에 넣을지 밖에 넣을지? (영훈) 인트로와 술래 이름은 각자 게임 안에 넣으면 좋을 것 같아요
+        ## 게임 내에서의 순서는??? (영훈) 술래부터 시작하도록 idx를 매개변수로 주면 좋을 것 같아요
+        #----------------------------------------------for문 반복--------------------------------------------------
 
-            ## 현재까지 몇 잔 마셨는지, 치사량까지 몇 잔 남았는지 출력
-            ## 여기서 현재까지 몇 잔 마셨는지 알기 위해서, 리스트를 따로 생성해서 전체 딕셔너리에 추가하고 함수 내에서
-            ## 마신 사람의 리스트 +1 해서 조작하면 좋을 것 같습니다!
-            for i in range(pnum):
-                print(f"{players['이름'][i]}(은/는) 지금까지 {players['벌주량'][i]}! \
-            치사량까지 {players['주량'][i]}")
-            print('ıllıllııllıllııllıllııllıllııllıllııllıllııllıllııllıllııllıllııllıllııllıllııllıllııllııllıllııllıllı')
+        ## 현재까지 몇 잔 마셨는지, 치사량까지 몇 잔 남았는지 출력
+        ## 여기서 현재까지 몇 잔 마셨는지 알기 위해서, 리스트를 따로 생성해서 전체 딕셔너리에 추가하고 함수 내에서
+        ## 마신 사람의 리스트 +1 해서 조작하면 좋을 것 같습니다!
+        for i in range(pnum):
+            print(f"{players['이름'][i]}(은/는) 지금까지 {players['벌주량'][i]}! \
+        치사량까지 {players['주량'][i]}")
+        print('ıllıllııllıllııllıllııllıllııllıllııllıllııllıllııllıllııllıllııllıllııllıllııllıllııllııllıllııllıllı')
 
-            ## 게임 보기 출력
-            print('오늘의 술게임')
-            print('1. 지하철')
-            print('2. 레코드')
-            print('3. 아파트')
-            print('4. 업앤다운')
-            print('ıllıllııllıllııllıllııllıllııllıllııllıllııllıllııllıllııllıllııllıllııllıllııllıllııllııllıllııllıllı')
+        ## 게임 보기 출력
+        print('오늘의 술게임')
+        print('1. 지하철')
+        print('2. 레코드판')
+        print('3. 아파트')
+        print('4. 업앤다운')
+        print('ıllıllııllıllııllıllııllıllııllıllııllıllııllıllııllıllııllıllııllıllııllıllııllıllııllııllıllııllıllı')
 
-            print(f"{players['이름'][idx]}(이)가 ~ 좋아하는 ~ 랜덤 ~ 게임! 무슨 ~ 게임? 게임 ~~ 스타트!!! : ", end = '')
-            
-            ## 플레이어 게임 선택
-            if idx == 0:
-                class Not_1_4(Exception):
-                    pass
+        print(f"{players['이름'][idx]}(이)가 ~ 좋아하는 ~ 랜덤 ~ 게임! 무슨 ~ 게임? 게임 ~~ 스타트!!! : ", end = '')
+        
+        ## 플레이어 게임 선택
+        if idx == 0:
+            class Not_1_4(Exception):
+                pass
 
-                while True:
-                    try:
-                        gnum = int(input())
-                        if gnum > 4 or gnum < 1:
-                            raise Not_1_4
-                    except ValueError:  ## 정수가 아님
-                        print('1에서 4 사이의 보기를 골라주세요')
-                    except Not_1_4: ## 1~4가 아님
-                        print('1에서 4 사이의 보기를 골라주세요')
-                    else:
-                        break
+            while True:
+                try:
+                    gnum = int(input())
+                    if gnum > 4 or gnum < 1:
+                        raise Not_1_4
+                except ValueError:  ## 정수가 아님
+                    print('1에서 4 사이의 보기를 골라주세요')
+                except Not_1_4: ## 1~4가 아님
+                    print('1에서 4 사이의 보기를 골라주세요')
+                else:
+                    break
 
-            ## 컴퓨터 게임 선택
-            else:
-                gnum = random.randint(1,4)
-                print(f'{gnum}')
-            
-            print('ıllıllııllıllııllıllııllıllııllıllııllıllııllıllııllıllııllıllııllıllııllıllııllıllııllııllıllııllıllı')
+        ## 컴퓨터 게임 선택
+        else:
+            gnum = random.randint(1,4)
+            print(f'{gnum}')
+        
+        print('ıllıllııllıllııllıllııllıllııllıllııllıllııllıllııllıllııllıllııllıllııllıllııllıllııllııllıllııllıllı')
 
-            ## 게임 실행
-            # if gnum == 1:
-            #     Subway(players)
-            # elif gnum == 2:
-            #     Record(players)
-            # elif gnum == 3:
-            #     Apartment(players)
-            # else:
-            #     UpAndDown(players)
+        ## 게임 실행
+        # if gnum == 1:
+        #     Subway(players)
+        # elif gnum == 2:
+        #     Record(players)
+        # elif gnum == 3:
+        #     Apartment(players)
+        # else:
+        #     UpAndDown(players)
+        idx = (idx+1)%pnum
