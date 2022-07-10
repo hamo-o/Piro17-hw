@@ -6,7 +6,6 @@ class NotInRange(Exception):
 def UpAndDown(p, start):
         
     answer = randint(1,50)
-    end = 0
     min_num = 1
     max_num = 50
     
@@ -26,7 +25,7 @@ def UpAndDown(p, start):
     print()
     
     i = start
-    while end == False:
+    while True:
         
             player = p['이름'][i]
 
@@ -59,17 +58,12 @@ def UpAndDown(p, start):
                 print()
                 print(f'아 누가 술을 마셔 ~~~ {player}(이)가 술을 마셔 {player[0]} ! {player[1]} ! 원 ~~~ 샷 !')
                 print()
-                end = True
                 break
             print()
             
             i = (i + 1) % len(p['이름'])
     
     p['주량'][i] -= 1
+    p['벌주량'][i] += 1
     
     return p
-
-players = {'이름':['영훈', '병우', '선희', '현영'], '주량':[1, 3, 5, 2]}
-
-UpAndDown(players, 3)
-
