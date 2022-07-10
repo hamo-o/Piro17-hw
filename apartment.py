@@ -1,6 +1,8 @@
 def apartment(players, idx): # (이름, pnum)
   import random
   import copy
+  import time
+
   print("~"*120)
   print("""
           _______                    __                         __        _______                       
@@ -12,8 +14,10 @@ def apartment(players, idx): # (이름, pnum)
   print("~"*120)
 
   print(f"{players['이름'][idx]} 님이 아파트 게임을 선택했어요!😀")
+  time.sleep(1)
   print("~"*10, "아~파트 아파트 아~파트 아파트🏢 ", "~"*10)
-  
+  time.sleep(1)
+
   while True:
     if idx ==0:
       try:
@@ -42,11 +46,13 @@ def apartment(players, idx): # (이름, pnum)
   if remainder > 0:
     for i in player_double[remainder-1::-1]:
       print("-"*10, i, "-"*10)
+      time.sleep(0.1)
   
   if share > 0:  
     for i in range(share):
       for j in player_double[::-1]:
-        print("-"*10, j,"-"*10)  
+        print("-"*10, j,"-"*10)
+        time.sleep(0.1)  
 
   print()
 
@@ -55,7 +61,9 @@ def apartment(players, idx): # (이름, pnum)
   players['벌주량'][loser_index] += 1
   # print(player)
 
+  time.sleep(1)
   print(f"{players['이름'][loser_index]} 님이 걸리셨어요! 😜")
+  time.sleep(1)
   print("마셔마셔~ 먹고죽어~ 😈")
   return players
 
