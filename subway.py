@@ -74,7 +74,7 @@ def subwayGame(dict, idx):
                 dict["주량"][idx] -= 1
                 dict['벌주량'][idx] += 1
                 break
-        idx = (idx+1)%4
+        idx = (idx+1)%len(dict['이름'])
     return dict
 
 # 테스트 코드
@@ -88,7 +88,7 @@ if __name__ == '__main__':
     players = {'이름': ['영훈', '병우', '현영', '선희'],
                 '주량': [1, 1, 1, 1],
                 '벌주량': [0, 0, 0, 0]}
-    idx = 0
+    idx = 2
     players = subwayGame(players, idx)
     print()
     print(players)
