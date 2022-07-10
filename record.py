@@ -3,14 +3,13 @@
 # 청하 : 벌써 12시, Love U, Drive, Roller Coaster, Killing me, Bad Boy, Snapping, BB, Chica, Bicycle
 # 블랙핑크 : Lovesick Girls, 불장난, 마지막처럼, 휘파람, How You Like That, STAY, Pretty Savage, 붐바야
 # 소녀시대 : Lion Heart, PARTY, Holiday, Gee, Kissing You, Mr.Mr., I GOT A BOY, The Boys
-
-
-
-#players = {'이름':["영훈", "병우", "선희", "현영"],'주량':[5, 3, 5, 2], '벌주량':[0,0,0,0]} # 나중에 삭제
-
-#musics = []
+import requests
+from bs4 import BeautifulSoup as bs
+import random
+import time
 
 def crawl(singer):
+    
     list = []
     url = f"https://music.bugs.co.kr/search/track?q={singer}&flac_only=false&target=ARTIST_TRACK_ALBUM&page=1&sort=P"
     res = requests.get(url)
@@ -39,10 +38,7 @@ def asciiArt():
 
 
 def record(players, idx): # 메인 함수
-    import requests
-    from bs4 import BeautifulSoup as bs
-    import random
-    import time
+    
     musics = music_setting()
     asciiArt()
     print(f"{players['이름'][idx]}의 차례입니다!")
@@ -50,7 +46,7 @@ def record(players, idx): # 메인 함수
     # 입력받기
     while True:
         if idx == 0: # 스타터가 사람인 경우
-            song = input('레코드판~ 레코드판~ 삐끼삐끼~~ : ')
+            song = input('레코드판~ 레코드판~ 삐끼삐끼~~ (노래 제목 입력!): ')
             for i in range(len(musics)):
                 for j in range(len(musics[i])):
                     if song == musics[i][j]:
@@ -67,7 +63,7 @@ def record(players, idx): # 메인 함수
             singer_index = random.randint(0, len(musics)-1)
             ply_random_idx = random.randint(0, len(musics[singer_index])-1)
             ply = musics[singer_index][ply_random_idx]
-            print(f"레코드판~ 레코드판~ 삐끼삐끼~~ : {ply}")
+            print(f"레코드판~ 레코드판~ 삐끼삐끼~~ (노래 제목 입력!): {ply}")
             musics[singer_index].remove(ply)
             idx = (idx+1)%len(players['이름'])
             break
@@ -76,7 +72,7 @@ def record(players, idx): # 메인 함수
     while True:
         if idx == 0: # 입력 받아야 함
             time.sleep(1)
-            song = input(f"????(기대기대*^^*)???? {players['이름'][idx]} : ")
+            song = input(f"????(기대기대*^^*)???? {players['이름'][idx]} (노래 제목 입력!): ")
             if song in musics[singer_index]:
                 musics[singer_index].remove(song)
                 print("올~ㅋ")
@@ -90,11 +86,11 @@ def record(players, idx): # 메인 함수
             result = random.randint(1,10)
             song_random = random.randint(0, len(musics[singer_index])-1)
             if 1 <= result <= 7: # 맞추는 경우
-                print(f"????(기대기대*^^*)???? {players['이름'][idx]} : {musics[singer_index][song_random]}")
+                print(f"????(기대기대*^^*)???? {players['이름'][idx]} (노래 제목 입력!): {musics[singer_index][song_random]}")
                 print("올~ㅋ")
                 musics[singer_index].remove(musics[singer_index][song_random])
             else: # 틀리는 경우
-                print(f"????(기대기대*^^*)???? {players['이름'][idx]} : 모르겠당^!^")
+                print(f"????(기대기대*^^*)???? {players['이름'][idx]} (노래 제목 입력!): 모르겠당^!^")
                 print(players['이름'][idx], "바보샷~ 바보샷~")
                 players['주량'][idx] -= 1
                 players['벌주량'][idx] += 1
