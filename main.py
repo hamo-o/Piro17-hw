@@ -159,7 +159,8 @@ while True:
             players = game3.apartment(players, idx)
         else:
             players = game4.UpAndDown(players, idx)
-        flag = input("술게임 진행중! 도망가고 싶으면 'Exit'를 입력하세요. 계속하고 싶으면 엔터를 눌러주세요. : ")
+        
+        flag = input("술게임 진행중! 도망가고 싶으면 'Exit'를 입력하세요. 계속하고 싶으면 아무키나 입력해주세요. : ")
         if flag == 'Exit':
             break
         idx = (idx+1)%pnum
