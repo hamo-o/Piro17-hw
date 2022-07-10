@@ -1,10 +1,10 @@
 from random import *
 import copy
-from sys import exec_prefix
+# from sys import exec_prefix
 #####인트로 그림 및 멘트 & 시작 여부 묻기
 ##사용자 이름 받기
 #user = input('사용자의 이름을 입력해주세요')
-player = {'이름':['영훈', '병우', '선희', '현영'], '주량':[1, 3, 5, 2],' 벌주량': [0,0,0,0]}
+player = {'이름':['영훈', '병우', '선희', '현영'], '주량':[1, 3, 5, 2],'벌주량': [0,0,0,0]}
 pnum=4
 # player['이름'] .append(user)
 ##본인 주량 선택(보기 중에서 선택 & 예외처리)
@@ -26,8 +26,6 @@ for i in range(pnum):
 
 def apartment(cur_player, Howmany):
   
-
-
   print("~"*120)
   print("""
           _______                    __                         __        _______                       
@@ -43,6 +41,7 @@ def apartment(cur_player, Howmany):
   
   while True:
     try:
+      # 컴퓨터 사용가능해ㅑ앟ㅁ
       floor = int(input('아파트 몇층? : '))
       if floor < 0:
         print('정수로 입력해야쥐~😏',end='\n\n')
@@ -72,13 +71,12 @@ def apartment(cur_player, Howmany):
 
   print()
 
-  try:
-    loser_index = player['이름'].index(player_double[remainder-1])
-    player['주량'][loser_index] -= 1
-  except:
-    print('??')
+  loser_index = player['이름'].index(player_double[remainder-1])
+  player['주량'][loser_index] -= 1
+  player['벌주량'][loser_index] += 1
+  print(player)
 
   print(f"{player['이름'][loser_index]} 님이 걸리셨어요! 😜")
   print("마셔마셔~ 먹고죽어~ 😈")
 
-apartment( players['이름'][idx],pnum)
+apartment('용빈',4)
