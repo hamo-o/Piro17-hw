@@ -1,8 +1,3 @@
-
-        
-import imp
-
-
 def UpAndDown(p, start):
     from random import randint
     import time
