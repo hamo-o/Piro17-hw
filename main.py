@@ -91,8 +91,6 @@ players = {'이름' : names, '주량' : drinks, '벌주량': penalty}
 for i in range(pnum):
     print(f"오늘 함께 취할 친구는 {players['이름'][i]}입니다! (치사량 : {players['주량'][i]})")
 
-print('ıllıllııllıllııllıllııllıllııllıllııllıllııllıllııllıllııllıllııllıllııllıllııllıllııllııllıllııllıllı')
-
 ## 딕셔너리 맨 앞에 내 이름과 주량 추가, pnum도 1추가
 players['이름'].insert(0, my_name)
 players['주량'].insert(0, my_drink)
@@ -101,17 +99,11 @@ pnum += 1
 
 ## ----------------------------------------------여기서부터 전체반복----------------------------------------------
 idx = 0
-while True:
-        ## while문 안에서 치사량에 도달하면 완전 종료 
-        if 0 in players['주량']:
-            i = players['주량'].index(0)
-            print(f"{players['이름'][i]}(이)가 전사했습니다...")
-            print('ıllıllııllıllııllıllııllıllııllıllııllıllııllıllııllıllııllıllııllıllııllıllııllıllııllııllıllııllıllı')
-            break
-         
+while True: 
         ## 플레이어 - 컴1 - 컴2 - 컴3 ... 순서로 게임 선택 반복!
         ## 현재까지 몇 잔 마셨는지, 치사량까지 몇 잔 남았는지 출력
         time.sleep(1)
+        print('ıllıllııllıllııllıllııllıllııllıllııllıllııllıllııllıllııllıllııllıllııllıllııllıllııllııllıllııllıllı')
         for i in range(pnum):
             print(f"{players['이름'][i]}(은/는) 지금까지 {players['벌주량'][i]}! \
         치사량까지 {players['주량'][i]}")
@@ -163,6 +155,21 @@ while True:
         else:
             players = game4.UpAndDown(players, idx)
         
+        ## while문 안에서 치사량에 도달하면 완전 종료 
+        if 0 in players['주량']:
+            time.sleep(1)
+            print('ıllıllııllıllııllıllııllıllııllıllııllıllııllıllııllıllııllıllııllıllııllıllııllıllııllııllıllııllıllı')
+            for i in range(pnum):
+                print(f"{players['이름'][i]}(은/는) 지금까지 {players['벌주량'][i]}! \
+                치사량까지 {players['주량'][i]}")
+            print('ıllıllııllıllııllıllııllıllııllıllııllıllııllıllııllıllııllıllııllıllııllıllııllıllııllııllıllııllıllı')
+            i = players['주량'].index(0)
+            time.sleep(1)
+            print(f"{players['이름'][i]}(이)가 전사했습니다...")
+            print("😭😭😭😭 나 이제 술 끊을거야!! 😭😭😭😭")
+            print('ıllıllııllıllııllıllııllıllııllıllııllıllııllıllııllıllııllıllııllıllııllıllııllıllııllııllıllııllıllı')
+            break
+
         flag = input("🍺 술게임 진행중! 도망가고 싶으면 'Exit'를 입력하세요. 계속하고 싶으면 아무키나 입력해주세요. : ")
         if flag == 'Exit':
             break
