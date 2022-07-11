@@ -111,12 +111,14 @@ while True:
          
         ## 플레이어 - 컴1 - 컴2 - 컴3 ... 순서로 게임 선택 반복!
         ## 현재까지 몇 잔 마셨는지, 치사량까지 몇 잔 남았는지 출력
+        time.sleep(1)
         for i in range(pnum):
             print(f"{players['이름'][i]}(은/는) 지금까지 {players['벌주량'][i]}! \
         치사량까지 {players['주량'][i]}")
         print('ıllıllııllıllııllıllııllıllııllıllııllıllııllıllııllıllııllıllııllıllııllıllııllıllııllııllıllııllıllı')
 
         ## 게임 보기 출력
+        time.sleep(1)
         print('오늘의 술게임')
         print('1. 지하철')
         print('2. 레코드판')
@@ -124,6 +126,7 @@ while True:
         print('4. 업앤다운')
         print('ıllıllııllıllııllıllııllıllııllıllııllıllııllıllııllıllııllıllııllıllııllıllııllıllııllııllıllııllıllı')
 
+        time.sleep(1)
         print(f"{players['이름'][idx]}(이)가 ~ 좋아하는 ~ 랜덤 ~ 게임! 무슨 ~ 게임? 게임 ~~ 스타트!!! : ", end = '')
         
         ## 플레이어 게임 선택
@@ -160,7 +163,7 @@ while True:
         else:
             players = game4.UpAndDown(players, idx)
         
-        flag = input("술게임 진행중! 도망가고 싶으면 'Exit'를 입력하세요. 계속하고 싶으면 아무키나 입력해주세요. : ")
+        flag = input("🍺 술게임 진행중! 도망가고 싶으면 'Exit'를 입력하세요. 계속하고 싶으면 아무키나 입력해주세요. : ")
         if flag == 'Exit':
             break
         idx = (idx+1)%pnum
