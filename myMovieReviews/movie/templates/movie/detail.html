@@ -23,7 +23,7 @@
 
     <div>
       <a href="/update/{{movie.id}}">수정</a>
-      <form action="" method="post">
+      <form action="/delete/{{movie.id}}" method="post">
         {% csrf_token %}
         <button>삭제</button>
       </form>

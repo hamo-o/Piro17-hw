@@ -62,3 +62,8 @@ star=mystar, time=mytime, review=myreview, director=mydirector, actor=myactor)
         }
         
     return render(request, template_name='movie/update.html', context=context)
+
+def delete(request, id):
+    if request.method == "POST":
+        Movie.objects.filter(id=id).delete()
+        return redirect('/')
