@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>홈 화면</title>
+  </head>
+  <body>
+    <a href="">Add a New review</a>
+    {% for movie in movie_lists %}
+    <article>
+      <h1>{{movie.title}}</h1>
+      <div><span>개봉년도 </span>{{movie.year}}</div>
+      <div><span>장르 </span>{{movie.type}}</div>
+      <div><span>별점 </span>{{movie.star}}</div>
+    </article>
+    {% endfor %}
+  </body>
+</html>
