@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>게시글 올리기</title>
+  </head>
+  <body>
+    <form action="/update/{{movie.id}}" method="post">
+      {% csrf_token %}
+      <div>
+        제목: <input type="text" name="title" value="{{movie.title}}" />
+      </div>
+      <div>
+        개봉년도: <input type="number" name="year" value="{{movie.year}}" />
+      </div>
+      <div>장르: <input type="text" name="type" value="{{movie.type}}" /></div>
+      <div>별점: <input type="text" name="star" value="{{movie.star}}" /></div>
+      <div>
+        러닝타임: <input type="number" name="time" value="{{movie.time}}" />
+      </div>
+      <div>
+        리뷰:
+        <textarea name="review" id="" cols="30" rows="10">
+{{movie.review}}</textarea
+        >
+      </div>
+      <div>
+        감독: <input type="text" name="director" value="{{movie.director}}" />
+      </div>
+      <div>
+        배우: <input type="text" name="actor" value="{{movie.actor}}" />
+      </div>
+
+      <div>
+        <input type="submit" value="Save" />
+      </div>
+    </form>
+
+    <a href="/">Home</a>
+  </body>
+</html>
