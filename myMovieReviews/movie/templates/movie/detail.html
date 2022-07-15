@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -5,28 +6,46 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>상세화면</title>
+    <link rel="stylesheet" href="{% static 'css/detail.css' %}" />
   </head>
   <body>
-    <div><a href="/">myMoviereviews</a></div>
-    <article>
-      <h2 class="movie-title">제목 : {{ movie.title }}</h2>
-      <div class="movie-content">
-        <div>개봉년도 {{ movie.year }}</div>
-        <div>감독 {{ movie.director }}</div>
-        <div>주연 {{ movie.actor }}</div>
-        <div>장르 {{ movie.type }}</div>
-        <div>별점 {{ movie.star }}</div>
-        <div>러닝타임 {{ movie.time }}분</div>
+    <header>
+      <div class="title">
+        <a href="/">my<span>Movie</span>reviews</a>
       </div>
-      <div class="movie-review">{{ movie.review }}</div>
-    </article>
+      <div class="add">
+        <a href="/create">Add a New review</a>
+      </div>
+    </header>
 
-    <div>
-      <a href="/update/{{movie.id}}">수정</a>
-      <form action="/delete/{{movie.id}}" method="post">
-        {% csrf_token %}
-        <button>삭제</button>
-      </form>
+    <div class="container">
+      <div class="container-top">
+        <div class="container-title">{{ movie.title }}</div>
+        <div class="container-ud">
+          <a href="/update/{{movie.id}}">수정</a>
+          <form action="/delete/{{movie.id}}" method="post">
+            {% csrf_token %} <button>삭제</button>
+          </form>
+        </div>
+      </div>
+      <div class="container-content">
+        <img src="https://picsum.photos/seed/{{movie.id}}/150/200" alt="" />
+        <div class="container-texts">
+          <div class="container-text">
+            <span>개봉년도</span> {{ movie.year }}
+          </div>
+          <div class="container-text">
+            <span>감독</span> {{ movie.director }}
+          </div>
+          <div class="container-text"><span>주연</span> {{ movie.actor }}</div>
+          <div class="container-text"><span>장르</span> {{ movie.type }}</div>
+          <div class="container-text"><span>별점</span> {{ movie.star }}</div>
+          <div class="container-text">
+            <span>러닝타임</span> {{ movie.time }}분
+          </div>
+        </div>
+      </div>
+      <div class="container-review">{{ movie.review }}</div>
     </div>
   </body>
 </html>

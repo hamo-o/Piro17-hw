@@ -1,0 +1,86 @@
+@import url("reset.css");
+
+header {
+  height: 10vh;
+  padding: 2rem;
+
+  border-bottom: 0.1rem solid lightgray;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.title {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.add {
+  font-weight: bold;
+}
+
+.title span {
+  font-weight: bolder;
+  color: palevioletred;
+}
+
+.container {
+  width: 90vw;
+  margin: 2vw 5vw 0;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.container-top {
+  width: 90vw;
+  padding: 1rem 0 1rem;
+
+  display: flex;
+  justify-content: space-between;
+}
+
+.container-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.container-ud {
+  font-size: 1rem;
+
+  display: flex;
+  align-items: flex-end;
+  gap: 0.5rem;
+}
+
+.container-content,
+.container-review {
+  width: 100%;
+  margin-bottom: 1rem;
+
+  background: rgb(239, 239, 239);
+}
+
+.container-content {
+  display: flex;
+}
+
+.container-texts {
+  padding: 1rem;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.container-text span {
+  font-weight: 600;
+  color: gray;
+}
+
+.container-review {
+  padding: 1rem;
+}
