@@ -87,8 +87,11 @@ def dev_create(request):
 def dev_detail(request, id):
     tool = Tool.objects.get(id=id)
     
+    all_post = tool.post_tool.all()
+    
     context = {
         "tool":tool,
+        "all_post":all_post,
     }
     
     return render(request, template_name='posts/dev_detail.html', context=context)
