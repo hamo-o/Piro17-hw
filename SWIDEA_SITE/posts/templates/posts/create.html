@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+  {% load static %}
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>게시글 올리기</title>
+  </head>
+  <body>
+    <form
+      action="{% url 'posts:create' %}"
+      method="post"
+      enctype="multipart/form-data"
+    >
+      {% csrf_token %}
+      <div>
+        <div>아이디어명:</div>
+        <input type="text" name="title" />
+      </div>
+      <div>
+        <div>Image:</div>
+        <input type="file" name="image" />
+      </div>
+      <div>
+        <div>아이디어 설명:</div>
+        <textarea name="content" id="" cols="30" rows="10"></textarea>
+      </div>
+      <div>
+        <div>아이디어 관심도:</div>
+        <input type="text" name="interest" />
+      </div>
+      <div>
+        <div>예상 개발툴:</div>
+        <input type="text" name="devtool" />
+      </div>
+
+      <div>
+        <input type="submit" value="제출" />
+      </div>
+    </form>
+
+    <a href="{% url 'posts:home' %}">Home</a>
+  </body>
+</html>

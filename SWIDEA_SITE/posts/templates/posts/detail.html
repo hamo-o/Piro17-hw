@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>상세화면</title>
+  </head>
+  <body>
+    <article>
+      {% if post.image %}
+      <p>
+        <img src="{{ post.image.url }}" alt="" />
+      </p>
+      {% endif %}
+      <h2>제목 : {{ post.title }}</h2>
+      <div>1) 아이디어 관심도 <br />{{post.interst}}</div>
+      <div>2) 예상 개발 툴 <br />{{post.devtool}}</div>
+      <div>3) 아이디어 설명 <br />{{post.content}}</div>
+    </article>
+
+    <div><a href="{% url 'posts:update' post.id %}">update</a></div>
+    <form action="{% url 'posts:delete' post.id %}" method="post">
+      {% csrf_token %}
+      <button>삭제</button>
+    </form>
+    <div><a href="{% url 'posts:home' %}">Home</a></div>
+  </body>
+</html>
