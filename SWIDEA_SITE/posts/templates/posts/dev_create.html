@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="ko">
-  {% load static %}
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -15,30 +14,22 @@
       <a href="{% url 'posts:dev_create' %}">개발툴 등록</a>
     </header>
     <form
-      action="{% url 'posts:create' %}"
+      action="{% url 'posts:dev_create' %}"
       method="post"
       enctype="multipart/form-data"
     >
       {% csrf_token %}
       <div>
-        <div>아이디어명:</div>
-        <input type="text" name="title" />
+        <div>이름:</div>
+        <input type="text" name="name" />
       </div>
       <div>
-        <div>Image:</div>
-        <input type="file" name="image" />
+        <div>종류:</div>
+        <input type="text" name="type" />
       </div>
       <div>
         <div>아이디어 설명:</div>
         <textarea name="content" id="" cols="30" rows="10"></textarea>
-      </div>
-      <div>
-        <div>아이디어 관심도:</div>
-        <input type="text" name="interest" />
-      </div>
-      <div>
-        <div>예상 개발툴:</div>
-        <input type="text" name="devtool" />
       </div>
 
       <div>
@@ -46,6 +37,6 @@
       </div>
     </form>
 
-    <a href="{% url 'posts:home' %}">Home</a>
+    <a href="{% url 'posts:dev' %}">DevHome</a>
   </body>
 </html>

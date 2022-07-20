@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>홈 화면</title>
+    <title>개발툴 관리</title>
   </head>
   <body>
     <header>
@@ -13,16 +13,11 @@
       <a href="{% url 'posts:dev' %}">개발툴 관리</a>
       <a href="{% url 'posts:dev_create' %}">개발툴 등록</a>
     </header>
-    {% for post in posts %}
+    {% for tool in tools %}
     <article>
-      <div>
-        <img src="{{ post.image.url }}" alt="" />
-      </div>
-      <a href="{% url 'posts:detail' post.id %}">
-        <h1>{{post.title}}</h1>
-      </a>
-      <p>예상 개발 툴 : {{post.devtool}}</p>
-      <p>아이디어 관심도 : {{post.interest}}</p>
+      <a href="{% url 'posts:dev_detail' tool.id %}">{{tool.name}}</a>
+      <p>{{tool.type}}</p>
+      <p>{{tool.content}}</p>
     </article>
     {% endfor %}
   </body>

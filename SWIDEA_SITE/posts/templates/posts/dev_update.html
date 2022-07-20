@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 <html lang="ko">
-  {% load static %}
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>게시글 올리기</title>
+    <title>개발툴 관리</title>
   </head>
   <body>
     <header>
@@ -15,37 +14,29 @@
       <a href="{% url 'posts:dev_create' %}">개발툴 등록</a>
     </header>
     <form
-      action="{% url 'posts:create' %}"
+      action="{% url 'posts:dev_update' tool.id %}"
       method="post"
       enctype="multipart/form-data"
     >
       {% csrf_token %}
       <div>
-        <div>아이디어명:</div>
-        <input type="text" name="title" />
+        <div>이름:</div>
+        <input type="text" name="name" value="{{tool.name}}" />
       </div>
       <div>
-        <div>Image:</div>
-        <input type="file" name="image" />
+        <div>종류:</div>
+        <input type="text" name="type" value="{{tool.type}}" />
       </div>
       <div>
         <div>아이디어 설명:</div>
-        <textarea name="content" id="" cols="30" rows="10"></textarea>
-      </div>
-      <div>
-        <div>아이디어 관심도:</div>
-        <input type="text" name="interest" />
-      </div>
-      <div>
-        <div>예상 개발툴:</div>
-        <input type="text" name="devtool" />
+        <textarea name="content" id="" cols="30" rows="10">
+{{tool.content}}</textarea
+        >
       </div>
 
       <div>
         <input type="submit" value="제출" />
       </div>
     </form>
-
-    <a href="{% url 'posts:home' %}">Home</a>
   </body>
 </html>

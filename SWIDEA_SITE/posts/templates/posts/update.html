@@ -7,6 +7,12 @@
     <title>게시글 올리기</title>
   </head>
   <body>
+    <header>
+      <a href="{% url 'posts:create' %}">아이디어 등록</a>
+      <a href="/">아이디어 관리</a>
+      <a href="{% url 'posts:dev' %}">개발툴 관리</a>
+      <a href="{% url 'posts:dev_create' %}">개발툴 등록</a>
+    </header>
     <form action="/update/{{post.id}}" method="post">
       {% csrf_token %}
       <p>
