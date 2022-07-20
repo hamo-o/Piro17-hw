@@ -4,6 +4,14 @@ from .models import Post, Tool
 #home
 def home(request):
     posts = Post.objects.all()
+    
+    sort = request.GET.get('sort', 'None')
+    if sort == "name":
+       posts = posts.order_by("title")
+    elif sort == "createAt":
+       posts = posts.order_by("created_at")
+    elif sort == "updateAt":
+       posts = posts.order_by("-updated_at")
 
     context = {
         "posts":posts
@@ -12,18 +20,26 @@ def home(request):
 
 #Create
 def create(request):
+    tools = Tool.objects.all()
     if request.method == "POST":
         title = request.POST["title"]
         image = request.FILES["image"]
         content = request.POST["content"]
         interest = request.POST["interest"]
         devtool = request.POST["devtool"]
+        for tool in tools:
+            if tool.name == devtool:
+                devtool = tool
     
         Post.objects.create(title=title, image=image, content=content, interest=interest, devtool=devtool)
 
         return redirect('/')
 
-    context = {}
+    TOOL_LIST = []
+    for tool in tools:
+        TOOL_LIST.append(tool.name)
+    
+    context = {'tool_list':TOOL_LIST}
     return render(request, template_name='posts/create.html', context=context)
 
 def detail(request, id):

@@ -20,7 +20,7 @@
       <hr />
       <div>만들 수 있는 SW 목록</div>
       {% for post in all_post %}
-      <div>{{post.title}}</div>
+      <div><a href="{% url 'posts:detail' post.id %}">{{post.title}}</a></div>
       {% endfor %}
     </article>
     <div><a href="{% url 'posts:dev_update' tool.id %}">update</a></div>

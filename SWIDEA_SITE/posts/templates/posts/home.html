@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ko">
+  {% load static %}
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -13,6 +14,21 @@
       <a href="{% url 'posts:dev' %}">개발툴 관리</a>
       <a href="{% url 'posts:dev_create' %}">개발툴 등록</a>
     </header>
+    <div>
+      <h1>Idea List</h1>
+      <div>나의 아이디어를 잊지 말고 기록해보세요</div>
+    </div>
+    <form action="" method="GET">
+      {% csrf_token %}
+      <select id="sort" name="sort" onchange="this.form.submit();">
+        <option value="none">--정렬기준--</option>
+        <option value="star">찜하기순</option>
+        <option value="name">이름순</option>
+        <option value="createAt">등록순</option>
+        <option value="updateAt">최신순</option>
+      </select>
+    </form>
+
     {% for post in posts %}
     <article>
       <div>
@@ -26,4 +42,5 @@
     </article>
     {% endfor %}
   </body>
+  <script src="{% static 'javascripts/script.js' %}"></script>
 </html>
