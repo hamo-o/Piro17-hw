@@ -53,12 +53,20 @@ def detail(request, id):
 
 # Update
 def update(request, id):
+    tools = Tool.objects.all()
+    TOOL_LIST = []
+    for tool in tools:
+        TOOL_LIST.append(tool.name)
+
     if request.method == "POST":
         title = request.POST["title"]
         image = request.FILES["image"]
         content = request.POST["content"]
         interest = request.POST["interest"]
         devtool = request.POST["devtool"]
+        for tool in tools:
+            if tool.name == devtool:
+                devtool = tool
         
         Post.objects.filter(id=id).update(title = title, image=image, content=content, interest=interest, devtool=devtool)
         return redirect(f"/post/{id}")
@@ -66,10 +74,10 @@ def update(request, id):
     elif request.method == "GET":
         post = Post.objects.get(id=id)
         context = {
-            "post": post
+            "post": post,
+            "tool_list":TOOL_LIST
         }
-    
-    return render(request, template_name='posts/update.html', context=context)
+        return render(request, template_name='posts/update.html', context=context)
 
 # Delete
 def delete(request, id):

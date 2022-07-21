@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="ko">
-  {% load static %}
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -37,10 +36,9 @@
       <a href="{% url 'posts:detail' post.id %}">
         <h1>{{post.title}}</h1>
       </a>
-      <p>예상 개발 툴 : {{post.devtool}}</p>
+      <p>예상 개발 툴 : {{post.devtool.name}}</p>
       <p>아이디어 관심도 : {{post.interest}}</p>
     </article>
     {% endfor %}
   </body>
-  <script src="{% static 'javascripts/script.js' %}"></script>
 </html>

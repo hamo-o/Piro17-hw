@@ -20,7 +20,7 @@
       </p>
       {% endif %}
       <h2>제목 : {{ post.title }}</h2>
-      <div>1) 아이디어 관심도 <br />{{post.interst}}</div>
+      <div>1) 아이디어 관심도 <br />{{post.interest}}</div>
       <div>
         2) 예상 개발 툴 <br /><a
           href="{% url 'posts:dev_detail' post.devtool.id %}"

@@ -13,7 +13,7 @@
       <a href="{% url 'posts:dev' %}">개발툴 관리</a>
       <a href="{% url 'posts:dev_create' %}">개발툴 등록</a>
     </header>
-    <form action="/update/{{post.id}}" method="post">
+    <form action="/update/{{post.id}}" method="post" enctype="multipart/form-data">
       {% csrf_token %}
       <p>
         아이디어명:
@@ -28,7 +28,8 @@
       <p>
         Image:
         <br />
-        <input type="file" name="image" value="{{post.image}}" />
+        <div>Currently: {{ post.image.url }}</div>
+        <div>Change: <input type="file" name="image" /></div>
       </p>
       <p>
         아이디어 관심도:
@@ -38,7 +39,11 @@
       <p>
         예상 개발툴:
         <br />
-        <input type="text" name="devtool" value="{{post.devtool}}" />
+        <select name="devtool" id="">
+            {% for tool in tool_list %}
+            <option value="{{ tool }}">{{ tool }}</option>
+            {% endfor %}
+          </select>
       </p>
 
       <div>
