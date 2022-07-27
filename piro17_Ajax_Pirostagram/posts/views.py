@@ -38,26 +38,30 @@ def detail(request, pk):
     
     return render(request, template_name='posts/detail.html', context=context)
 
-# def comment_create(request, pk):
-#     if request.user.is_authenticated:
-#         post = get_object_or_404(Post, pk=pk)
-#         cmt_form = CommentForm(request.POST)
-#         if cmt_form.is_valid():
-#             comment = cmt_form.save(commit=False)
-#             comment.post = post
-#             comment.user = request.user
-#             comment.save()
-#         return redirect('posts:detail', post.pk)
-#     return redirect('/')
+def delete(request, id):
+    if request.method == "POST":
+        Post.objects.filter(id=id).delete()
+        return redirect('/')
 
-# def comment_delete(request, post_pk, comment_pk):
-#     if request.user.is_authenticated:
-#         comment = get_object_or_404(Comment, pk=comment_pk)
-#         if request.user == comment.user:
-#             comment.delete()
-#     return redirect('posts:detail', post_pk)
+def comment_create(request, pk):
+    if request.user.is_authenticated:
+        post = get_object_or_404(Post, pk=pk)
+        cmt_form = CommentForm(request.POST)
+        if cmt_form.is_valid():
+            comment = cmt_form.save(commit=False)
+            comment.post = post
+            comment.user = request.user
+            comment.save()
+        return redirect('posts:detail', post.pk)
+    return redirect('/')
+
+def comment_delete(request, post_pk, comment_pk):
+    if request.user.is_authenticated:
+        comment = get_object_or_404(Comment, pk=comment_pk)
+        if request.user == comment.user:
+            comment.delete()
+    return redirect('posts:detail', post_pk)
     
-
 
 import json
 from django.http import JsonResponse

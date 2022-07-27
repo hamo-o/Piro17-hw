@@ -21,6 +21,10 @@
       >
         {% autoescape off %} {{ post.like }} {% endautoescape %}
       </div>
+      <form action="{% url 'posts:delete' post.id %}" method="post">
+        {% csrf_token %}
+        <button>삭제</button>
+      </form>
     </div>
     {% endfor %}
     <a href="./create">++++++++</a>
