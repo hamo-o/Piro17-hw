@@ -19,7 +19,7 @@
         onclick="onClickLike({{ post.id }}, 'like')"
         style="cursor: pointer"
       >
-        {{ post.like }}
+        {% autoescape off %} {{ post.like }} {% endautoescape %}
       </div>
     </div>
     {% endfor %}
