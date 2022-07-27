@@ -21,49 +21,62 @@
       >
         {% autoescape off %} {{ post.like }} {% endautoescape %}
       </div>
-      <form action="{% url 'posts:delete' post.id %}" method="post">
-        {% csrf_token %}
-        <button>삭제</button>
-      </form>
+      <div onclick="onClickdel({{post.id}})" style="cursor: pointer">
+        <i class="fa-regular fa-trash-can"></i>
+      </div>
     </div>
     {% endfor %}
-    <a href="./create">++++++++</a>
+    <form action="" method="post">
+      {% csrf_token %}
+      <input type="text" name="content" placeholder="댓글달기" />
+      <input type="submit" value="게시" />
+    </form>
     <script>
       //1️⃣
       const requestLike = new XMLHttpRequest();
       const onClickLike = (id) => {
-        //파라미터로 서버로 보낼 데이터의 id(포스트 id)
-        const url = "/like_ajax/"; //요청을 보낼 url -> urls.py에 등록해야함
-        requestLike.open("POST", url, true); //POST 방식으로 비동기로 서버에 요청
+        const url = "/like_ajax/";
+        requestLike.open("POST", url, true);
         requestLike.setRequestHeader(
-          // header에 포함하고자하는 내용들
           "Content-Type",
           "application/x-ww-form-urlencoded"
         );
-        requestLike.send(JSON.stringify({ id: id })); //JSON 형태로 id와 type를(데이터를) 서버에 보내기(요청)
+        requestLike.send(JSON.stringify({ id: id }));
       };
-      // 서버에서 request 처리를 해서 다시 클라이언트로 보내준 것
       requestLike.onreadystatechange = () => {
         if (requestLike.readyState === XMLHttpRequest.DONE) {
-          // requestLike의 값이 변할때마다 자동으로 실행됨
-          likeHandleResponse(); //응답받을 준비가 완료
+          likeHandleResponse();
         }
       };
-
-      //views.py에서 post.like +=1한거는 데이터(DB)에만 반영돼서
-      // 새로고침없이 html에서 보이는 값을 바꾸기 위해서 js에서 Number(num) + 1을 하는 것
       const likeHandleResponse = () => {
         if (requestLike.status < 400) {
-          // 상태값이 정상적임(에러아님)
-          const { id, message, status } = JSON.parse(requestLike.response); // 서버에서 들어온 JSON 응답값을 다시 자바스크립트에서 쓸 수 있게 형변환
+          const { id, message, status } = JSON.parse(requestLike.response);
           const element = document.querySelector(`.post-id-${id} .post__like`);
           console.log(message);
           console.log(status);
           if (message == "좋아요")
             element.innerHTML =
               '<i class="fa-solid fa-heart" style="color:red"></i>';
-          //채워진하트
-          else element.innerHTML = '<i class="fa-solid fa-heart"></i>'; //빈하트
+          else element.innerHTML = '<i class="fa-solid fa-heart"></i>';
+        }
+      };
+      const requestdel = new XMLHttpRequest();
+      const onClickdel = (id) => {
+        const url = "/delete_ajax/";
+        requestdel.open("POST", url, true);
+        requestdel.setRequestHeader(
+          "Content-Type",
+          "application/x-ww-form-urlencoded"
+        );
+        requestdel.send(JSON.stringify({ id: id }));
+      };
+      requestdel.onreadystatechange = () => {
+        if (requestdel.readyState === XMLHttpRequest.DONE) {
+          if (requestdel.status < 400) {
+            const { id } = JSON.parse(requestdel.response);
+            const element = document.querySelector(`.post-id-${id}`);
+            element.remove();
+          }
         }
       };
     </script>
