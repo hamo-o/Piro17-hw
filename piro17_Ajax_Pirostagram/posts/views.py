@@ -96,6 +96,6 @@ def like_ajax(request):
 def delete_ajax(request):
     request = json.loads(request.body) 
     post_id = request['id'] 
-    post = Post.objects.filter(id = post_id).delete()
+    Post.objects.filter(id = post_id).delete()
 
     return JsonResponse({'id': post_id })
